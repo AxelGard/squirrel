@@ -16,23 +16,24 @@ I would recomend a python version `=>3.8`.
 python3 squirrel.py ./some/dir/with/html/files
 ```
 
-In a file `/some/dir/with/html/files/a.html`
+In **a** file `./some/dir/with/html/files/a.html`
 ```html
 <p> Hi from A file </p>
 {{./some/dir/with/html/files/b.html}}
 <p> Hi after B file </p>
 ```
 
-In b file `/some/dir/with/html/files/b.html`
+In **b** file `./some/dir/with/html/files/b.html`
 ```html
 <p> Hi from B file </p>
 ```
 
 This will become: 
 
+In **a** file `./build/a.html`
+
 ```html
 <p> Hi from A file </p>
 <p> Hi from B file </p>
 <p> Hi after B file </p>
 ```
-

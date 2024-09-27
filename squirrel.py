@@ -3,6 +3,7 @@ import os
 import typing
 from os import listdir
 from os.path import isfile, join
+import copy
 
 
 def read_file(f_path:str) -> str:
@@ -13,22 +14,18 @@ def read_file(f_path:str) -> str:
 def get_all_files_in_dir(path:str) -> typing.List[str]:
     return [f for f in listdir(path) if isfile(join(path, f))]
 
-def write(to_file:str):
-    pass 
+def write_to_file(to_file:str, text:str):
+    with open(to_file, "w") as f: 
+        f.write(text)
 
 def parse(html:str)->str:
-    html = html.replace("\n", " ").replace("  ", " ")
-    repl = None 
-    found = None
-    for word in html.split(" "):
-        if word == "": continue
+    for word in html.replace("\n", " ").replace("  ", " ").split(" "):
         if "{{" in word and "}}" in word: 
-            found = word
+            found = copy.copy(word) 
             word = word.replace("{", "").replace("}","")
             if os.path.isfile(word) and ".html" in word: 
-                word = parse(read_file(word))
-                repl = f"\n{word}\n" 
-                html.replace(found, repl)
+                new_html = parse(read_file(word))
+                html = html.replace(found, new_html)
     return html
 
 
@@ -36,10 +33,13 @@ def build(dir_path:str):
     assert os.path.isdir(dir_path), "build got a none dir path as argument"
     if dir_path[-1] != "/":
         dir_path += "/"
+    build_path = "./build/"
+    if not os.path.exists(build_path):
+        os.makedirs(build_path)
     for file in get_all_files_in_dir(dir_path):
         p = parse(read_file(dir_path + file))
-        if "a." in file:
-            print(p)
+        write_to_file("./build/" + file, p)
+
 
 if __name__ == "__main__":
     _argv = sys.argv

@@ -1,19 +1,25 @@
-# squirrel
+# Squirrel
 A smiple way of build static website. 
 
 <img src="./doc/squirrel.jpg" alt="drawing" style="width:300px;">
 
-## install 
+## Install 
 
 All that is needed is that `squirrel/squirrel.py` [file](https://github.com/AxelGard/squirrel/blob/master/squirrel/squirrel.py).
 It only uses the standard lib from python. 
 I would recomend a python version `=>3.8`. 
 
 
-## usage 
+## Usage 
 
 ```bash
 python3 squirrel.py ./some/dir/with/html/files
+```
+
+or 
+
+```bash
+./squirrel.py ./some/dir/with/html/files
 ```
 
 In **a** file `./some/dir/with/html/files/a.html`

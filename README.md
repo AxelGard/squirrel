@@ -22,6 +22,9 @@ or
 ./squirrel.py ./some/dir/with/html/files
 ```
 
+
+### Result
+
 In **a** file `./some/dir/with/html/files/a.html`
 ```html
 <p> Hi from A file </p>

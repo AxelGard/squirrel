@@ -1,7 +1,7 @@
 # squirrel
 A smiple way of build static website. 
 
-<img src="./doc/squirrel.jpg" alt="drawing" style="width=300px">
+<img src="./doc/squirrel.jpg" alt="drawing" style="width:300px;">
 
 ## install 
 

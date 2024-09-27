@@ -4,8 +4,7 @@ import os
 import typing
 from os import listdir
 from os.path import isfile, join
-import copy
-
+import re
 
 def read_file(f_path:str) -> str:
     with open(f_path, "r") as f: 
@@ -20,13 +19,11 @@ def write_to_file(to_file:str, text:str):
         f.write(text)
 
 def parse(html:str)->str:
-    for word in html.replace("\n", " ").replace("  ", " ").split(" "):
-        if "{{" in word and "}}" in word: 
-            found = copy.copy(word) 
-            word = word.replace("{", "").replace("}","")
-            if os.path.isfile(word) and ".html" in word: 
-                new_html = parse(read_file(word))
-                html = html.replace(found, new_html)
+    pattern = r'\{\{(.*?)\}\}'
+    for word in re.findall(pattern, html): 
+        if os.path.isfile(word) and ".html" in word: 
+            new_html = parse(read_file(word))
+            html = html.replace("{{"+ word +"}}", new_html)
     return html
 
 

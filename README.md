@@ -13,7 +13,7 @@ I would recomend a python version `=>3.8`.
 ## Usage 
 
 ```bash
-./squirrel.py ./some/dir/with/html/files/my_html_squirrel_file.html
+./squirrel.py ./some/dir/with/html/files/a.html
 ```
 
 the result will be writen to `./build`.

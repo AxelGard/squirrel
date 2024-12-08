@@ -13,24 +13,22 @@ I would recomend a python version `=>3.8`.
 ## Usage 
 
 ```bash
-python3 squirrel.py ./some/dir/with/html/files
-```
-
-or 
-
-make sure you have done `chmod 777 ./squirrel.py`
-
-```bash
-./squirrel.py ./some/dir/with/html/files
-```
-
-you can also point to a file 
-
-```bash
 ./squirrel.py ./some/dir/with/html/files/my_html_squirrel_file.html
 ```
 
 the result will be writen to `./build`.
+
+you can also point to a dir 
+
+```bash
+python3 squirrel.py ./some/dir/with/html/files
+```
+or 
+
+```bash
+./squirrel.py ./some/dir/with/html/files
+```
+make sure you have done `chmod 777 ./squirrel.py`
 
 ### Result
 

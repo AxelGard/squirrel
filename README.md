@@ -18,18 +18,6 @@ I would recomend a python version `=>3.8`.
 
 the result will be writen to `./build`.
 
-you can also point to a dir 
-
-```bash
-python3 squirrel.py ./some/dir/with/html/files
-```
-or 
-
-```bash
-./squirrel.py ./some/dir/with/html/files
-```
-make sure you have done `chmod 777 ./squirrel.py`
-
 ### Result
 
 In **a** file `./some/dir/with/html/files/a.html`
@@ -53,3 +41,18 @@ In **a** file `./build/a.html`
 <p> Hi from B file </p>
 <p> Hi after B file </p>
 ```
+
+### More usage
+
+you can also point to a dir 
+
+```bash
+python3 squirrel.py ./some/dir/with/html/files
+```
+or 
+
+```bash
+./squirrel.py ./some/dir/with/html/files
+```
+make sure you have done `chmod 777 ./squirrel.py`
+

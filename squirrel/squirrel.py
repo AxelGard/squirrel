@@ -31,7 +31,7 @@ def parse(html: str) -> str:
     return html
 
 
-def build(dir_path: str):
+def build_dir(dir_path: str) -> None:
     assert os.path.isdir(dir_path), "build got a none dir path as argument"
     if dir_path[-1] != "/":
         dir_path += "/"
@@ -40,11 +40,22 @@ def build(dir_path: str):
         os.makedirs(build_path)
     for file in get_all_files_in_dir(dir_path):
         p = parse(read_file(dir_path + file))
-        write_to_file("./build/" + file, p)
+        write_to_file(build_path + file, p)
+
+
+def build_file(file_path: str) -> None:
+    build_path = "./build/"
+    file = file_path.split("/")[-1]
+    p = parse(read_file(file_path))
+    write_to_file(build_path + file, p) 
 
 
 if __name__ == "__main__":
     _argv = sys.argv
     assert len(_argv) > 1, "Needs path argument"
-    assert os.path.isdir(_argv[1]), "Needs a exsting dir as argument"
-    build(_argv[1])
+    if os.path.isdir(_argv[1]):
+        build_dir(_argv[1])
+    elif os.path.isfile(_argv[1]):
+        build_file(_argv[1])
+    else: 
+        raise ValueError("Needs a file or a dir as an argument")

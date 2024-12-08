@@ -18,10 +18,19 @@ python3 squirrel.py ./some/dir/with/html/files
 
 or 
 
+make sure you have done `chmod 777 ./squirrel.py`
+
 ```bash
 ./squirrel.py ./some/dir/with/html/files
 ```
 
+you can also point to a file 
+
+```bash
+./squirrel.py ./some/dir/with/html/files/my_html_squirrel_file.html
+```
+
+the result will be writen to `./build`.
 
 ### Result
 
